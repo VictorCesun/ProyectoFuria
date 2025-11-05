@@ -1,0 +1,26 @@
+<div class="chat-container">
+  <div class="chat-box">
+    <div *ngFor="let msg of mensajes" [ngClass]="msg.autor">
+      <p>{{ msg.texto }}</p>
+    </div>
+  </div>
+
+  <!-- Paso 0: selección de motivo -->
+  <div *ngIf="paso === 0" class="opciones">
+    <button *ngFor="let opcion of opciones" (click)="seleccionarMotivo(opcion)">
+      {{ opcion }}
+    </button>
+  </div>
+
+  <!-- Entrada de usuario -->
+  <div *ngIf="conversacionActiva && paso > 0" class="input-box">
+    <input [(ngModel)]="entradaUsuario" placeholder="Escribe tu respuesta..." (keyup.enter)="enviarMensaje()" />
+    <button (click)="enviarMensaje()">Enviar</button>
+  </div>
+
+  <!-- Reiniciar conversación -->
+  <div *ngIf="!conversacionActiva" class="reiniciar">
+    <p>¿Deseas iniciar una nueva queja?</p>
+    <button (click)="iniciarConversacion()">Nueva conversación</button>
+  </div>
+</div>
