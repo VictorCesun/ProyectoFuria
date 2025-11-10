@@ -1,20 +1,36 @@
-<div class="auth-container">
-  <!-- Login -->
-  <div *ngIf="modo === 'login'" class="auth-box">
-    <h2>Iniciar Sesión</h2>
-    <input type="email" placeholder="Correo electrónico" [(ngModel)]="email">
-    <input type="password" placeholder="Contraseña" [(ngModel)]="password">
-    <button (click)="login()">Entrar</button>
-    <p>¿No tienes cuenta? <a (click)="cambiarModo('registro')">Regístrate</a></p>
-  </div>
+<div class="auth-background">
+  <div class="auth-card">
+    <div *ngIf="modo === 'login'" class="auth-box">
+      <h1>🚛 CAMIONES XZZ</h1>
+      <h2>Iniciar Sesión</h2>
+      <p>Conéctate con tu cuenta en minutos</p>
 
-  <!-- Registro -->
-  <div *ngIf="modo === 'registro'" class="auth-box">
-    <h2>Crear Cuenta</h2>
-    <input type="text" placeholder="Nombre completo" [(ngModel)]="nombre">
-    <input type="email" placeholder="Correo electrónico" [(ngModel)]="email">
-    <input type="password" placeholder="Contraseña" [(ngModel)]="password">
-    <button (click)="registrar()">Registrar</button>
-    <p>¿Ya tienes cuenta? <a (click)="cambiarModo('login')">Inicia sesión</a></p>
+      <input type="email" placeholder="Correo electrónico" [(ngModel)]="email">
+      <input type="password" placeholder="Contraseña" [(ngModel)]="password">
+      
+      <button (click)="login()">ENTRAR</button>
+
+      <p class="switch">¿No tienes cuenta? 
+        <a (click)="cambiarModo('registro')">Regístrate</a>
+      </p>
+    </div>
+
+    <div *ngIf="modo === 'registro'" class="auth-box">
+      <h1>🚛 CAMIONES XZZ</h1>
+      <h2>Crear Cuenta</h2>
+      <p>Regístrate para acceder al chat</p>
+
+      <input type="text" placeholder="Nombre completo" [(ngModel)]="nombre">
+      <input type="email" placeholder="Correo electrónico" [(ngModel)]="email">
+      <input type="password" placeholder="Contraseña" [(ngModel)]="password">
+      
+      <button (click)="registrar()">REGISTRAR</button>
+
+      <p class="switch">¿Ya tienes cuenta? 
+        <a (click)="cambiarModo('login')">Inicia sesión</a>
+      </p>
+    </div>
+
+    <p class="privacy">Política de Privacidad</p>
   </div>
 </div>
